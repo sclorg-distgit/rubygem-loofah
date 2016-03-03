@@ -1,0 +1,25 @@
+From 9770574d0d2ede35e8a8f0fc17c91f6765f8c3a6 Mon Sep 17 00:00:00 2001
+From: Mike Dalessio <mike.dalessio@gmail.com>
+Date: Sun, 10 Jan 2016 23:55:25 -0500
+Subject: [PATCH] Updating test to support libxml 2.9.3 behavior
+
+Closes #96
+---
+ test/assets/testdata_sanitizer_tests1.dat | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/test/assets/testdata_sanitizer_tests1.dat b/test/assets/testdata_sanitizer_tests1.dat
+index a9efbbc..940ba7c 100644
+--- a/test/assets/testdata_sanitizer_tests1.dat
++++ b/test/assets/testdata_sanitizer_tests1.dat
+@@ -345,6 +345,7 @@
+     "name": "should_sanitize_script_tag_with_multiple_open_brackets",
+     "input": "<<script>alert(\"XSS\");//<</script>",
+     "output": "alert(\"XSS\");//",
++    "xhtml": "&lt;&lt;script&gt;alert('XSS');//&lt;&lt;/script&gt;",
+     "rexml": "Ill-formed XHTML!"
+   },
+ 
+-- 
+2.4.3
+
